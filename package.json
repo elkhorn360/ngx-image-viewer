@@ -20,8 +20,9 @@
     "url": "https://github.com/LacunaSoftware/ngx-image-viewer"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
     "@angular/animations": "^5.2.11",
-    "@angular/cli": "^1.7.4",
+    "@angular/cli": "^7.3.9",
     "@angular/common": "^5.2.11",
     "@angular/compiler": "^5.2.11",
     "@angular/compiler-cli": "^5.2.11",
@@ -56,6 +57,7 @@
     "zone.js": "^0.8.14"
   },
   "dependencies": {
-    "screenfull": "^3.3.2"
+    "screenfull": "^3.3.2",
+    "tslib": "^1.9.0"
   }
 }
