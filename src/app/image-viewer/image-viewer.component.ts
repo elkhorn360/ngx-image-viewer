@@ -172,12 +172,12 @@ export class ImageViewerComponent implements OnInit {
   }
 
   @HostListener('mouseover')
-  private onMouseOver() {
+  onMouseOver() {
     this.hovered = true;
   }
 
   @HostListener('mouseleave')
-  private onMouseLeave() {
+  onMouseLeave() {
     this.hovered = false;
   }
 
