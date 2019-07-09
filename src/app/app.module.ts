@@ -7,15 +7,15 @@ import { ImageViewerModule } from './image-viewer/image-viewer.module';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ImageViewerModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		ImageViewerModule.forRoot()
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
