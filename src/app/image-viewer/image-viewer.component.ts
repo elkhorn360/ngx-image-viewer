@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, Optional, Inject, Output, EventEmitter, HostListener} from '@angular/core';
 import { ImageViewerConfig, CustomEvent } from './image-viewer-config.model';
+import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 const DEFAULT_CONFIG: ImageViewerConfig = {
   btnClass: 'default',
@@ -35,7 +36,7 @@ const DEFAULT_CONFIG: ImageViewerConfig = {
 export class ImageViewerComponent implements OnInit {
 
   @Input()
-  src: string[];
+  src: (string | SafeResourceUrl | SafeUrl)[];
 
   @Input()
   index = 0;
