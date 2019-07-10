@@ -1,6 +1,12 @@
 import { Directive, HostListener, OnChanges, Input, ElementRef } from '@angular/core';
 import * as screenfull from 'screenfull';
 
+// [DEPRECATED] In LacunaImageViewer, this directive turned deprecated because it
+// has a little bug: while in fullscreen mode, if we exit it by pressing "ESC", the
+// "fullscreen" state, represented by the variable "isFullscreen", is not updated;
+// consequently, the next time the user wants to get into fullscreen mode, it will
+// be necessary to press the fullscreen button twice.
+
 @Directive({
 	selector: '[ngxToggleFullscreen]'
 })
@@ -12,7 +18,7 @@ export class ToggleFullscreenDirective implements OnChanges {
 	constructor(private el: ElementRef) { }
 
 	ngOnChanges() {
-		if (isScreenFull(screenfull)) {
+		if (isScreenFullAvailable(screenfull)) {
 			if (this.isFullscreen && screenfull.enabled) {
 				screenfull.request(this.el.nativeElement);
 			} else if (screenfull.enabled) {
@@ -25,6 +31,6 @@ export class ToggleFullscreenDirective implements OnChanges {
 	}
 }
 
-function isScreenFull(sf: screenfull.Screenfull | false): sf is screenfull.Screenfull {
+export function isScreenFullAvailable(sf: screenfull.Screenfull | false): sf is screenfull.Screenfull {
 	return (sf as screenfull.Screenfull).enabled !== undefined;
 }
