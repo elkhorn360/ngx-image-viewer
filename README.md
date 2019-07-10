@@ -8,7 +8,8 @@ What LacunaImageViewer has improved in NgxImageViewer:
  * Made it possible to use SafeUrl and SafeResourceUrl as source; 
  * Made it possible to disable dragging (`allowDrag`);
  * Fixed the runtime error caused by screenfull; 
- * Fixed some build errors that showed up after we updated ng-packagr (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature).
+ * Fixed some build errors that showed up after we updated ng-packagr (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature);
+ * Fixed a bug that happened when a user was in fullscreen mode, and exited by pressing "ESC"; when doing so, the user would need to press the fullscreen button twice to activate it again.
 
 ## NgxImageViewer Features:
  * Compatible with Angular 2.x, 4.x and 5.x
