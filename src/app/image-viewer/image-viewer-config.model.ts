@@ -2,7 +2,7 @@ export interface ImageViewerConfig {
 	btnClass?: string; // we observed that it was tricky to override the browser button
 	zoomFactor?: number;
 	containerBackgroundColor?: string;
-	wheelZoom?: boolean;
+	allowCtrlWheelZoom?: boolean;
 	allowFullscreen?: boolean;
 	allowKeyboardNavigation?: boolean;
 	allowDrag?: boolean;

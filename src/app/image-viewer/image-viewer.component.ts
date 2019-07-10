@@ -8,7 +8,7 @@ const DEFAULT_CONFIG: ImageViewerConfig = {
 	btnClass: 'mat-mini-fab', // we observed that it was tricky to override the browser button
 	zoomFactor: 0.1,
 	containerBackgroundColor: '#ccc',
-	wheelZoom: true,
+	allowCtrlWheelZoom: true,
 	allowFullscreen: true,
 	allowKeyboardNavigation: true,
 	allowDrag: true,
@@ -110,8 +110,8 @@ export class ImageViewerComponent implements OnInit {
 		this.updateStyle();
 	}
 
-	scrollZoom(evt) {
-		if (this.config.wheelZoom) {
+	scrollZoom(evt: WheelEvent) {
+		if (this.config.allowCtrlWheelZoom && evt.ctrlKey) {
 			evt.deltaY > 0 ? this.zoomOut() : this.zoomIn();
 			return false;
 		}

@@ -7,6 +7,7 @@ What LacunaImageViewer has improved in NgxImageViewer:
  * Started using Material as default for the buttons and icons, instead of Font-awesome;
  * Made it possible to use SafeUrl and SafeResourceUrl as source; 
  * Made it possible to disable dragging (`allowDrag`);
+ * Made the wheel zoom work only when ctrl is pressed, to follow the way other viewers work, such as Adobe Reader (the config `wheelZoom` was renamed to `allowCtrlWheelZoom` as well);
  * Fixed the runtime error caused by screenfull; 
  * Fixed some build errors that showed up after we updated ng-packagr (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature);
  * Fixed a bug that happened when a user was in fullscreen mode, and exited by pressing "ESC"; when doing so, the user would need to press the fullscreen button twice to activate it again.
@@ -74,7 +75,7 @@ The configuration object is structured as below. All values are optional, and if
   btnClass: 'mat-mini-fab', // The CSS class(es) that will apply to the buttons
   zoomFactor: 0.1, // The amount that the scale will be increased by
   containerBackgroundColor: '#ccc', // The color to use for the background. This can provided in hex, or rgb(a).
-  wheelZoom: true, // If true, the mouse wheel can be used to zoom in
+  allowCtrlWheelZoom: true, // If true, pressing ctrl and scrolling the mouse wheel will be used to zoom in and out when the cursor is inside the component
   allowFullscreen: true, // If true, the fullscreen button will be shown, allowing the user to entr fullscreen mode
   allowKeyboardNavigation: true, // If true, the left / right arrow keys can be used for navigation
   allowDrag: true, // If true, you will be able to drag the image and move it inside the container
