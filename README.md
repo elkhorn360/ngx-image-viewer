@@ -1,6 +1,6 @@
 # LacunaImageViewer
 
-A fork from NgxImageViewer, which is a configurable Angular image viewer component.
+A fork from [NgxImageViewer](https://github.com/jpilfold/ngx-image-viewer), which is a configurable Angular image viewer component.
 
 What LacunaImageViewer has improved in NgxImageViewer:
  * Updated Angular to 7.x (it was previously at version 5.x) and some other packages, such as ng-packagr;
