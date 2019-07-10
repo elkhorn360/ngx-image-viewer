@@ -1,8 +1,15 @@
-# NgxImageViewer
+# LacunaImageViewer
 
-A configurable Angular image viewer component, compatible with Angular 2.x, 4.x and 5.x
+A fork from NgxImageViewer, which is a configurable Angular image viewer component.
 
-## Features:
+What LacunaImageViewer has improved in NgxImageViewer:
+ * Updated Angular to 7.x (it was previously at version 5.x) and some other packages, such as ng-packagr;
+ * Started using Material as default for the buttons and icons, instead of Font-awesome;
+ * Made it possible to use SafeUrl and SafeResourceUrl as source; 
+ * Fixed the runtime error caused by screenfull; 
+ * Fixed some build errors that showed up after we updated ng-packagr (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature).
+
+## NgxImageViewer Features:
  * Compatible with Angular 2.x, 4.x and 5.x
  * Configurable
  * Rotate image
@@ -18,10 +25,10 @@ https://angular-2wrbwp.stackblitz.io/
 
 ## Set up
 
-To use default configuration, simply import the ImageViewerModule into your module, like so:
+To use default configuration, simply import ImageViewerModule into your module, like so:
 
 ```javascript
-import { ImageViewerModule } from "ngx-image-viewer";
+import { ImageViewerModule } from "lacuna-image-viewer";
 
 @NgModule({
   //...
@@ -42,10 +49,11 @@ Then, add the component to your template, providing an array of image URLs. You 
 By default, the image viewer will fill its container. If you wish to restrict the size, simply place it within a div, and set the size constraints on the div.
 
 
-If you want to use the standard icons, you will also need to install `font-awesome`
+If you want to use the standard icons of LacunaImageViewer, you will also need to install `@angular/cdk` and `@angular/material`, and set up your styles file to use Angular Material as well.
 
 ```
-npm install --save font-awesome
+npm install --save @angular/cdk
+npm install --save @angular/material
 ```
 
 Otherwise, you will need to use the configuration to set different icon classes.
@@ -55,26 +63,26 @@ Otherwise, you will need to use the configuration to set different icon classes.
 
 ## Configuration
 
-Configuration can be provided at the module level (by passing the object as an argument to `forRoot()`, or at the component level, by passing it as the `config` input. Any configuration provided at the component level will override that which is set at the module level.
+Configuration can be provided at module level (by passing the object as an argument to `forRoot()`), or at component level, by passing it to the `config` input. Any configuration provided at component level will override the one that was passed at module level.
 
 The configuration object is structured as below. All values are optional, and if ommitted, the default value shown below will be used.
 
 ```javascript
 {
-  btnClass: 'default', // The CSS class(es) that will apply to the buttons
+  btnClass: 'mat-mini-fab', // The CSS class(es) that will apply to the buttons
   zoomFactor: 0.1, // The amount that the scale will be increased by
   containerBackgroundColor: '#ccc', // The color to use for the background. This can provided in hex, or rgb(a).
   wheelZoom: true, // If true, the mouse wheel can be used to zoom in
   allowFullscreen: true, // If true, the fullscreen button will be shown, allowing the user to entr fullscreen mode
   allowKeyboardNavigation: true, // If true, the left / right arrow keys can be used for navigation
   btnIcons: { // The icon classes that will apply to the buttons. By default, font-awesome is used.
-    zoomIn: 'fa fa-plus',
-    zoomOut: 'fa fa-minus',
-    rotateClockwise: 'fa fa-repeat',
-    rotateCounterClockwise: 'fa fa-undo',
-    next: 'fa fa-arrow-right',
-    prev: 'fa fa-arrow-left',
-    fullscreen: 'fa fa-arrows-alt',
+    zoomIn: 'material-icons zoom-in',
+	zoomOut: 'material-icons zoom-out',
+	rotateClockwise: 'material-icons rotate-clockwise',
+	rotateCounterClockwise: 'material-icons rotate-counterclock',
+	next: 'material-icons next',
+	prev: 'material-icons prev',
+	fullscreen: 'material-icons fullscreen',
   },
   btnShow: {
     zoomIn: true,
@@ -87,11 +95,11 @@ The configuration object is structured as below. All values are optional, and if
 };
 ```
 
-To add additional buttons use the following 
+You can also add custom buttons, as in the example below: 
 
 ```html 
 <ngx-image-viewer [src]="images" 
-                  [config]="{customBtns:[{name: 'link', icon: 'fa fa-paperclip'}]}"
+                  [config]="{customBtns:[{ name: 'link', icon: 'material-icons link' }]}"
                   (customEvent)="handleEvent($event)">
 </ngx-image-viewer>
 ```
