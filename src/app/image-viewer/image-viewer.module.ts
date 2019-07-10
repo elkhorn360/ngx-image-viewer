@@ -1,12 +1,16 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule, MatIconModule } from '@angular/material';
+
 import { ImageViewerComponent } from './image-viewer.component';
 import { ImageViewerConfig } from './image-viewer-config.model';
 import { ToggleFullscreenDirective } from './fullscreen.directive';
 
 @NgModule({
 	imports: [
-		CommonModule
+		CommonModule,
+		MatButtonModule,
+		MatIconModule,
 	],
 	declarations: [
 		ImageViewerComponent,

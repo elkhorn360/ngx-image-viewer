@@ -76,15 +76,15 @@ button.default:disabled {
     height: 60px;
     margin: auto;
     padding: 10px;
-    background-color: rgba(0,0,0,0.4);  
-    border-radius: 25%;  
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 25%;
 }
 
 .spinner {
     border-width: 7px;
     border-style: solid;
     border-color: #ccc;
-    border-bottom-color: #222; 
+    border-bottom-color: #222;
     border-radius: 50%;
     height: 100%;
     width: 100%;
@@ -92,7 +92,7 @@ button.default:disabled {
     -webkit-animation: rotation 2s linear infinite; /* Safari 4+ */
     -moz-animation:    rotation 2s linear infinite; /* Fx 5+ */
     -o-animation:      rotation 2s linear infinite; /* Opera 12+ */
-    animation:         rotation 2s linear infinite; /* IE 10+, Fx 29+ */   
+    animation:         rotation 2s linear infinite; /* IE 10+, Fx 29+ */
 }
 
 @keyframes rotation {
@@ -129,4 +129,55 @@ button.default:disabled {
     to {
             -webkit-transform: rotate(359deg);
     }
+}
+
+
+// zoomIn: 'fa fa-plus',
+// 		zoomOut: 'fa fa-minus',
+// 		rotateClockwise: 'fa fa-repeat',
+// 		rotateCounterClockwise: 'fa fa-undo',
+// 		next: 'fa fa-arrow-right',
+// 		prev: 'fa fa-arrow-left',
+// 		fullscreen: 'fa fa-arrows-alt',
+
+.zoom-in {
+	&:after {
+		content: "zoom_in";
+	}
+}
+
+.zoom-out {
+	&:after {
+		content: "zoom_out";
+	}
+}
+
+.rotate-clockwise {
+	&:after {
+		content: "rotate_right";
+	}
+}
+
+.rotate-counterclock {
+	&:after {
+		content: "rotate_left";
+	}
+}
+
+.next {
+	&:after {
+		content: "keyboard_arrow_right";
+	}
+}
+
+.prev {
+	&:after {
+		content: "keyboard_arrow_left";
+	}
+}
+
+.fullscreen {
+	&:after {
+		content: "fullscreen";
+	}
 }

@@ -6,7 +6,7 @@ import { TestImageBase64 } from './test-image-base-64';
 @Component({
 	selector: 'ngx-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 	title = 'app';
@@ -21,7 +21,7 @@ export class AppComponent {
 	imageIndexOne = 0;
 	imageIndexTwo = 0;
 
-	config: ImageViewerConfig = { customBtns: [{ name: 'print', icon: 'fa fa-print' }, { name: 'link', icon: 'fa fa-link' }] };
+	config: ImageViewerConfig = { customBtns: [{ name: 'print', icon: 'material-icons print' }, { name: 'link', icon: 'material-icons link' }] };
 
 	constructor(private sanitizer: DomSanitizer) { }
 

@@ -1,5 +1,5 @@
 export interface ImageViewerConfig {
-	btnClass?: string;
+	btnClass?: string; // we observed that it was tricky to override the browser button
 	zoomFactor?: number;
 	containerBackgroundColor?: string;
 	wheelZoom?: boolean;

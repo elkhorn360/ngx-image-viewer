@@ -3,7 +3,7 @@ import { ImageViewerConfig, CustomEvent } from './image-viewer-config.model';
 import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 const DEFAULT_CONFIG: ImageViewerConfig = {
-	btnClass: 'default',
+	btnClass: 'mat-mini-fab', // we observed that it was tricky to override the browser button
 	zoomFactor: 0.1,
 	containerBackgroundColor: '#ccc',
 	wheelZoom: false,
@@ -18,13 +18,13 @@ const DEFAULT_CONFIG: ImageViewerConfig = {
 		prev: true
 	},
 	btnIcons: {
-		zoomIn: 'fa fa-plus',
-		zoomOut: 'fa fa-minus',
-		rotateClockwise: 'fa fa-repeat',
-		rotateCounterClockwise: 'fa fa-undo',
-		next: 'fa fa-arrow-right',
-		prev: 'fa fa-arrow-left',
-		fullscreen: 'fa fa-arrows-alt',
+		zoomIn: 'material-icons zoom-in',
+		zoomOut: 'material-icons zoom-out',
+		rotateClockwise: 'material-icons rotate-clockwise',
+		rotateCounterClockwise: 'material-icons rotate-counterclock',
+		next: 'material-icons next',
+		prev: 'material-icons prev',
+		fullscreen: 'material-icons fullscreen',
 	}
 };
 
