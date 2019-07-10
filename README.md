@@ -6,6 +6,7 @@ What LacunaImageViewer has improved in NgxImageViewer:
  * Updated Angular to 7.x (it was previously at version 5.x) and some other packages, such as ng-packagr;
  * Started using Material as default for the buttons and icons, instead of Font-awesome;
  * Made it possible to use SafeUrl and SafeResourceUrl as source; 
+ * Made it possible to disable dragging (`allowDrag`);
  * Fixed the runtime error caused by screenfull; 
  * Fixed some build errors that showed up after we updated ng-packagr (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature).
 
@@ -75,6 +76,7 @@ The configuration object is structured as below. All values are optional, and if
   wheelZoom: true, // If true, the mouse wheel can be used to zoom in
   allowFullscreen: true, // If true, the fullscreen button will be shown, allowing the user to entr fullscreen mode
   allowKeyboardNavigation: true, // If true, the left / right arrow keys can be used for navigation
+  allowDrag: true, // If true, you will be able to drag the image and move it inside the container
   btnIcons: { // The icon classes that will apply to the buttons. By default, font-awesome is used.
     zoomIn: 'material-icons zoom-in',
 	zoomOut: 'material-icons zoom-out',

@@ -6,9 +6,10 @@ const DEFAULT_CONFIG: ImageViewerConfig = {
 	btnClass: 'mat-mini-fab', // we observed that it was tricky to override the browser button
 	zoomFactor: 0.1,
 	containerBackgroundColor: '#ccc',
-	wheelZoom: false,
+	wheelZoom: true,
 	allowFullscreen: true,
 	allowKeyboardNavigation: true,
+	allowDrag: true,
 	btnShow: {
 		zoomIn: true,
 		zoomOut: true,
@@ -130,19 +131,23 @@ export class ImageViewerComponent implements OnInit {
 	}
 
 	onDragOver(evt) {
-		this.translateX += (evt.clientX - this.prevX);
-		this.translateY += (evt.clientY - this.prevY);
-		this.prevX = evt.clientX;
-		this.prevY = evt.clientY;
-		this.updateStyle();
+		if(this.config.allowDrag){
+			this.translateX += (evt.clientX - this.prevX);
+			this.translateY += (evt.clientY - this.prevY);
+			this.prevX = evt.clientX;
+			this.prevY = evt.clientY;
+			this.updateStyle();
+		}
 	}
 
 	onDragStart(evt) {
-		if (evt.dataTransfer && evt.dataTransfer.setDragImage) {
-			evt.dataTransfer.setDragImage(evt.target.nextElementSibling, 0, 0);
+		if(this.config.allowDrag){
+			if (evt.dataTransfer && evt.dataTransfer.setDragImage) {
+				evt.dataTransfer.setDragImage(evt.target.nextElementSibling, 0, 0);
+			}
+			this.prevX = evt.clientX;
+			this.prevY = evt.clientY;
 		}
-		this.prevX = evt.clientX;
-		this.prevY = evt.clientY;
 	}
 
 	toggleFullscreen() {
