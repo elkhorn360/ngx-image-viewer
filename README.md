@@ -20,7 +20,7 @@ What LacunaImageViewer has improved in NgxImageViewer:
  * Drag to move image
  * Toggle fullscreen mode
 
-## DEMO
+## NgxImageViewer DEMO
 
 https://angular-2wrbwp.stackblitz.io/
 
