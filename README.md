@@ -10,7 +10,7 @@ What LacunaImageViewer has improved in NgxImageViewer:
  * Made the wheel zoom work only when ctrl is pressed, to follow the way other viewers work, such as Adobe Reader (the config `wheelZoom` was renamed to `allowCtrlWheelZoom` as well);
  * Since the package `screenfull` was causing some errors in runtime, we replaced it by the package `angular-bigscreen`, which is simpler to use, and, as `screenfull`, is a wrapper of the HTML5 fullscreen API;
  * Fixed some build errors that showed up after we updated `ng-packagr` (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature);
- * Fixed a bug that happened when a user was in fullscreen mode, and exited by pressing "ESC"; when doing so, the user would need to press the fullscreen button twice to activate it again.
+ * Fixed a bug that happened when a user was in fullscreen mode, and exited by pressing "ESC"; when doing so, the user would need to press the fullscreen button twice to activate it again. We did it by deleting ToggleFullscreenDirective and simplifying the logic of the method toggleFullscreen, from ImageViewerComponent.
 
 ## NgxImageViewer Features:
  * Compatible with Angular 2.x, 4.x and 5.x
