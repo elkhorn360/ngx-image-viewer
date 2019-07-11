@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Optional, Inject, Output, EventEmitter, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { ImageViewerConfig, CustomEvent } from './image-viewer-config.model';
 import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import * as screenfull from 'screenfull';
-import { isScreenFullAvailable } from './fullscreen.directive';
+import { BigScreenService } from 'angular-bigscreen';
 
 const DEFAULT_CONFIG: ImageViewerConfig = {
 	btnClass: 'mat-mini-fab', // we observed that it was tricky to override the browser button
@@ -70,7 +69,10 @@ export class ImageViewerComponent implements OnInit {
 	private prevY: number;
 	private hovered = false;
 
-	constructor(@Optional() @Inject('config') public moduleConfig: ImageViewerConfig) { }
+	constructor(
+		@Optional() @Inject('config') public moduleConfig: ImageViewerConfig,
+		private bigScreenService: BigScreenService
+	) { }
 
 	ngOnInit() {
 		const merged = this.mergeConfig(DEFAULT_CONFIG, this.moduleConfig);
@@ -156,15 +158,10 @@ export class ImageViewerComponent implements OnInit {
 	}
 
 	toggleFullscreen() {
-		if(isScreenFullAvailable(screenfull)){
-			if(screenfull.enabled && this.config.allowFullscreen){
-				screenfull.toggle(this.fullscreenElement.nativeElement);
-			} else{
-				console.log("[lacuna-image-viewer warning] method toggleFullscreen() called, but fullscreen is disabled");
-			}
-		} else{
-			// Should not happen. See https://github.com/sindresorhus/screenfull.js/issues/126
-			console.log("[lacuna-image-viewer warning] Screenfull could not be used");
+		if(this.bigScreenService.isEnabled && this.config.allowFullscreen){
+			this.bigScreenService.toggle(this.fullscreenElement.nativeElement);
+		} else {
+			console.log("[lacuna-image-viewer warning] method toggleFullscreen() called, but fullscreen is disabled");
 		}
 	}
 

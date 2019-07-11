@@ -3,13 +3,13 @@
 A fork from [NgxImageViewer](https://github.com/jpilfold/ngx-image-viewer), which is a configurable Angular image viewer component.
 
 What LacunaImageViewer has improved in NgxImageViewer:
- * Updated Angular to 7.x (it was previously at version 5.x) and some other packages, such as ng-packagr;
- * Started using Material as default for the buttons and icons, instead of Font-awesome;
- * Made it possible to use SafeUrl and SafeResourceUrl as source; 
+ * Updated `Angular` to 7.x (it was previously at version 5.x) and some other packages, such as `ng-packagr`;
+ * Started using `Material` as default for the buttons and icons, instead of `Font-awesome`;
+ * Made it possible to use `SafeUrl` and `SafeResourceUrl` as source; 
  * Made it possible to disable dragging (`allowDrag`);
  * Made the wheel zoom work only when ctrl is pressed, to follow the way other viewers work, such as Adobe Reader (the config `wheelZoom` was renamed to `allowCtrlWheelZoom` as well);
- * Fixed the runtime error caused by screenfull; 
- * Fixed some build errors that showed up after we updated ng-packagr (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature);
+ * Since the package `screenfull` was causing some errors in runtime, we replaced it by the package `angular-bigscreen`, which is simpler to use, and, as `screenfull`, is a wrapper of the HTML5 fullscreen API;
+ * Fixed some build errors that showed up after we updated `ng-packagr` (errors related to private properties that were being used in the template, and also to callbacks with the wrong signature);
  * Fixed a bug that happened when a user was in fullscreen mode, and exited by pressing "ESC"; when doing so, the user would need to press the fullscreen button twice to activate it again.
 
 ## NgxImageViewer Features:
