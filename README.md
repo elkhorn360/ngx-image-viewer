@@ -3,7 +3,7 @@
 A fork from [NgxImageViewer](https://github.com/jpilfold/ngx-image-viewer), which is a configurable Angular image viewer component.
 
 What LacunaImageViewer has improved in NgxImageViewer:
- * Updated `Angular` to 7.x (it was previously at version 5.x) and some other packages, such as `ng-packagr`;
+ * This library was using `Angular` at version 5.x, and we updated it to 9.x (it important to say that it was built with Ivy) and some other packages, such as `ng-packagr`;
  * Started using `Material` as default for the buttons and icons, instead of `Font-awesome`;
  * Made it possible to use `SafeUrl` and `SafeResourceUrl` as source; 
  * Made it possible to disable dragging (`allowDrag`);
