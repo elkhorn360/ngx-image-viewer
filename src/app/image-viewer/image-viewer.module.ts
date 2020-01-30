@@ -22,7 +22,7 @@ import { ImageViewerConfig } from './image-viewer-config.model';
 	]
 })
 export class ImageViewerModule {
-	static forRoot(config?: ImageViewerConfig): ModuleWithProviders {
+	static forRoot(config?: ImageViewerConfig): ModuleWithProviders<ImageViewerModule> {
 		return {
 			ngModule: ImageViewerModule,
 			providers: [{ provide: 'config', useValue: config }]
