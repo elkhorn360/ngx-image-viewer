@@ -55,7 +55,7 @@ export class ImageViewerComponent implements OnInit {
 	@Output()
 	customEvent: EventEmitter<CustomEvent> = new EventEmitter();
 
-	@ViewChild('fullscreenElement')
+	@ViewChild('fullscreenElement', { static: true })
 	fullscreenElement: ElementRef;
 
 	public style = { transform: '', msTransform: '', oTransform: '', webkitTransform: '' };
