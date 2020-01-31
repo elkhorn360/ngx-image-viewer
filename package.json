@@ -1,6 +1,6 @@
 {
-  "name": "lacuna-image-viewer",
-  "version": "2.0.0-beta.1",
+  "name": "site",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,15 +9,13 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:viewer": "ng-packagr -p ng-package.json"
+    "build:viewer": "ng build lacuna-image-viewer",
+    "watch:viewer": "ng build lacuna-image-viewer --watch"
   },
-  "private": false,
-  "peerDependencies": {},
-  "repository": {
-    "url": "https://github.com/LacunaSoftware/ngx-image-viewer"
-  },
+  "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.0-rc.11",
+    "@angular-devkit/build-ng-packagr": "~0.900.0-rc.11",
     "@angular/animations": "^9.0.0-rc.11",
     "@angular/cdk": "^9.0.0-rc.8",
     "@angular/cli": "^9.0.0-rc.11",
@@ -55,7 +53,5 @@
     "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   },
-  "dependencies": {
-    "angular-bigscreen": "~3.2.0"
-  }
+  "dependencies": { }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "lacuna-image-viewer",
+  "version": "2.0.0-beta.1",
+  "repository": {
+    "url": "https://github.com/LacunaSoftware/ngx-image-viewer"
+  },
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": "^9.0.0-rc.11",
+    "@angular/core": "^9.0.0-rc.11",
+    "tslib": "^1.10.0"
+  },
+  "dependencies": {
+    "angular-bigscreen": "~3.2.0"
+  }
+}
