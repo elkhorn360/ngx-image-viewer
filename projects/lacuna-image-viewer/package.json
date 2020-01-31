@@ -6,8 +6,10 @@
   },
   "private": false,
   "peerDependencies": {
+    "@angular/cdk": "^9.0.0-rc.8",
     "@angular/common": "^9.0.0-rc.11",
     "@angular/core": "^9.0.0-rc.11",
+    "@angular/material": "^9.0.0-rc.8",
     "tslib": "^1.10.0"
   },
   "dependencies": {
