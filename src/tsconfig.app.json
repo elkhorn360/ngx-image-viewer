@@ -3,11 +3,14 @@
 	"compilerOptions": {
 		"outDir": "../out-tsc/app",
 		"baseUrl": "./",
-		"module": "es2015",
+		"paths": {
+		  "lacuna-image-viewer": [ "../dist/lacuna-image-viewer" ],
+		  "lacuna-image-viewer/*": [ "../dist/lacuna-image-viewer/*" ]
+		},
 		"types": []
 	},
-	"exclude": [
-		"test.ts",
-		"**/*.spec.ts"
+	"files": [
+		"main.ts",
+		"polyfills.ts"
 	]
 }

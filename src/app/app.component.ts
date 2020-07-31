@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ImageViewerConfig, CustomEvent } from './image-viewer/image-viewer-config.model';
+import { ImageViewerConfig, CustomEvent } from 'lacuna-image-viewer';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TestImageBase64 } from './test-image-base-64';
 
