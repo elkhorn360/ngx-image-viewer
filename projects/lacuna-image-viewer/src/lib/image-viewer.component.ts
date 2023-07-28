@@ -80,6 +80,18 @@ export class ImageViewerComponent implements OnInit {
 		this.triggerConfigBinding();
 	}
 
+	@HostListener('document:fullscreenchange', ['$event'])
+	@HostListener('document:webkitfullscreenchange', ['$event'])
+	@HostListener('document:mozfullscreenchange', ['$event'])
+	@HostListener('document:MSFullscreenChange', ['$event'])
+	checkFullscreenmode(e: any){
+		if(document.fullscreenElement){
+			this.fullscreen = true;
+		}else{
+			this.fullscreen = false;
+		}
+	}
+
 	@HostListener('window:keyup.ArrowRight', ['$event'])
 	nextImage(event) {
 		if (this.canNavigate(event) && this.index < this.src.length - 1) {
@@ -160,10 +172,8 @@ export class ImageViewerComponent implements OnInit {
 	toggleFullscreen() {
 		if (!this.fullscreen) {
 			this.openFullscreen();
-			this.fullscreen = true;
 		} else {
 			this.closeFullscreen();
-			this.fullscreen = false;
 		}
 	}
 
