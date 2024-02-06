@@ -1,6 +1,6 @@
 {
 	"name": "lacuna-image-viewer",
-	"version": "3.0.1-alpha.0",
+	"version": "4.0.0-beta01",
 	"repository": {
 		"url": "https://github.com/LacunaSoftware/ngx-image-viewer"
 	},
