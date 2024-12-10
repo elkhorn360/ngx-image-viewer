@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Optional, Inject, Output, EventEmitter, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { ImageViewerConfig, CustomEvent } from './image-viewer-config.model';
 import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import { BigScreenService } from 'angular-bigscreen';
+import { DOCUMENT } from '@angular/common';
 
 const DEFAULT_CONFIG: ImageViewerConfig = {
 	btnClass: 'mat-mini-fab', // we observed that it was tricky to override the browser button
@@ -59,7 +59,7 @@ export class ImageViewerComponent implements OnInit {
 	fullscreenElement: ElementRef;
 
 	public style = { transform: '', msTransform: '', oTransform: '', webkitTransform: '' };
-	public fullscreen = false;
+	private fullscreen = false;
 	public loading = true;
 	private scale = 1;
 	private rotation = 0;
@@ -70,14 +70,26 @@ export class ImageViewerComponent implements OnInit {
 	private hovered = false;
 
 	constructor(
+		@Inject(DOCUMENT) private document: any,
 		@Optional() @Inject('config') public moduleConfig: ImageViewerConfig,
-		private bigScreenService: BigScreenService
 	) { }
 
 	ngOnInit() {
 		const merged = this.mergeConfig(DEFAULT_CONFIG, this.moduleConfig);
 		this.config = this.mergeConfig(merged, this.config);
 		this.triggerConfigBinding();
+	}
+
+	@HostListener('document:fullscreenchange', ['$event'])
+	@HostListener('document:webkitfullscreenchange', ['$event'])
+	@HostListener('document:mozfullscreenchange', ['$event'])
+	@HostListener('document:MSFullscreenChange', ['$event'])
+	checkFullscreenmode(e: any){
+		if(document.fullscreenElement){
+			this.fullscreen = true;
+		}else{
+			this.fullscreen = false;
+		}
 	}
 
 	@HostListener('window:keyup.ArrowRight', ['$event'])
@@ -158,10 +170,44 @@ export class ImageViewerComponent implements OnInit {
 	}
 
 	toggleFullscreen() {
-		if(this.bigScreenService.isEnabled && this.config.allowFullscreen){
-			this.bigScreenService.toggle(this.fullscreenElement.nativeElement);
+		if (!this.fullscreen) {
+			this.openFullscreen();
 		} else {
-			console.log("[lacuna-image-viewer warning] method toggleFullscreen() called, but fullscreen is disabled");
+			this.closeFullscreen();
+		}
+	}
+
+	openFullscreen() {
+		if (this.fullscreenElement.nativeElement.requestFullscreen) {
+			this.fullscreenElement.nativeElement.requestFullscreen();
+		} else if (this.fullscreenElement.nativeElement.mozRequestFullScreen) {
+			/* Firefox */
+			this.fullscreenElement.nativeElement.mozRequestFullScreen();
+		} else if (this.fullscreenElement.nativeElement.webkitRequestFullscreen) {
+			/* Chrome, Safari and Opera */
+			this.fullscreenElement.nativeElement.webkitRequestFullscreen();
+		} else if (this.fullscreenElement.nativeElement.msRequestFullscreen) {
+			/* IE/Edge */
+			this.fullscreenElement.nativeElement.msRequestFullscreen();
+		} else {
+			console.error("Unable to open in fullscreen");
+		}
+	}
+
+	closeFullscreen() {
+		if (this.document.exitFullscreen) {
+			this.document.exitFullscreen();
+		} else if (this.document.mozCancelFullScreen) {
+			/* Firefox */
+			this.document.mozCancelFullScreen();
+		} else if (this.document.webkitExitFullscreen) {
+			/* Chrome, Safari and Opera */
+			this.document.webkitExitFullscreen();
+		} else if (this.document.msExitFullscreen) {
+			/* IE/Edge */
+			this.document.msExitFullscreen();
+		} else {
+			console.error("Unable to close fullscreen");
 		}
 	}
 

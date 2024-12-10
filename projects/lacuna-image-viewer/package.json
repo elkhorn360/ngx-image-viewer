@@ -1,18 +1,17 @@
 {
-  "name": "lacuna-image-viewer",
-  "version": "2.0.0",
-  "repository": {
-    "url": "https://github.com/LacunaSoftware/ngx-image-viewer"
-  },
-  "private": false,
-  "peerDependencies": {
-    "@angular/cdk": "^9.2.4",
-    "@angular/common": "^9.1.9",
-    "@angular/core": "^9.1.9",
-    "@angular/material": "^9.2.4"
-  },
-  "dependencies": {
-    "angular-bigscreen": "~3.2.0",
-    "tslib": "^1.10.0"
-  }
+	"name": "lacuna-image-viewer",
+	"version": "4.1.0",
+	"repository": {
+		"url": "https://github.com/LacunaSoftware/ngx-image-viewer"
+	},
+	"private": false,
+	"peerDependencies": {
+		"@angular/cdk": "^17.3.0",
+		"@angular/common": "^17.3.0",
+		"@angular/core": "^17.3.0",
+		"@angular/material": "^17.3.0"
+	},
+	"dependencies": {
+		"tslib": "^2.6.2"
+	}
 }

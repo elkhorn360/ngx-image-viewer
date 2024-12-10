@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-
-@import '~@angular/material/theming';
+@use '@angular/material' as mat;
 
 // always include only once per project
-@include mat-core();
+@include mat.all-component-typographies();
+@include mat.core();
 
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
-
 
 .print {
 	&:after {

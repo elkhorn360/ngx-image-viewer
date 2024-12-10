@@ -52,6 +52,10 @@ button.default:disabled {
     opacity: 0.25;
 }
 
+button .material-icons {
+	display: flex;
+}
+
 .nav-button-container > button {
     position: relative;
     right: 0;
