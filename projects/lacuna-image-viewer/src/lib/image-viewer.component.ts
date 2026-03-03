@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Optional, Inject, Output, EventEmitter, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Optional, Inject, Output, EventEmitter, HostListener, ElementRef, ViewChild, DOCUMENT } from '@angular/core';
 import { ImageViewerConfig, CustomEvent } from './image-viewer-config.model';
 import { SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
+
 
 const DEFAULT_CONFIG: ImageViewerConfig = {
 	btnClass: 'mat-mini-fab', // we observed that it was tricky to override the browser button
